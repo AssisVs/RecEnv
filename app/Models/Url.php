@@ -10,10 +10,10 @@ class Url extends Model
     protected $guarded = [];
 
     // Indicar o nome da tabela
-  //  protected $table = 'urls';
+    protected $table = 'urls';
 
       // Indicar quais colunas podem ser cadastrada
-  //    protected $fillable = ['url',];
+    protected $fillable = ['url',];
 
     public function requests(): HasMany
     {

@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('url', 'webhook');
+        /*  Para passar variaveis globais para a view */
+       /* View::share('urls', 'inicial'); */
     }
 }
