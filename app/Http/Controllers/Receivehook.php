@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessWebhook;
 use App\Models\Receivehook as ModelsReceivehook;
 use App\Models\Url;
 use Illuminate\Http\Request;
@@ -15,6 +16,9 @@ class Receivehook extends Controller
         $urls = Url::get();
         $jobs = ModelsReceivehook::get();
         ds(' dados controller', $urls);
+
+    // Agendar o envio do  job
+        ProcessWebhook::dispatch()->onQueue('default');
 
         return view('livewire.receivehook')
             ->with('urls', $urls)
